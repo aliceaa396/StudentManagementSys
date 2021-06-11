@@ -1,17 +1,24 @@
 package studentdatabaseapp;
 
+import java.util.Scanner;
+
 public class StudentDatabaseApp {
     public static void main(String[] args) {
-        Student student1 = new Student();
-        student1.enroll();
-        student1.payTuition();
-        System.out.println(student1.toString());
+        //Ask user how many students we want to add
 
-        //Ask how many students we want to add
+        System.out.println("Enter Number of Students to EnrollL: ");
+        Scanner in = new Scanner(System.in);
 
-        //Create the number of students
+        //Create an Arr of Objs w/ students
+        int numOfStudents = in.nextInt();
+        Student[] students = new Student[numOfStudents];
 
-
+        //Loop to create the number of students passed in
+        for(int n = 0; n < numOfStudents; n++){
+            students[n] = new Student();
+            students[n].enroll();
+            students[n].payTuition();
+            System.out.println(students[n].toString());
+        }
     }
-
 }
